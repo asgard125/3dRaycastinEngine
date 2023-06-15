@@ -1,0 +1,25 @@
+{
+  "video_data": {
+    "height": 36,
+    "width": 64,
+    "charmap": "...:;><+r*zsvfwqkP694VOGbUAKXH8RD#$B0MNWQ%&@",
+    "move_step_size": 1,
+    "rotate_angle": 10
+  },
+  "coordinate_system": {
+    "basis": [[1, 0, 0], [0, 1, 0], [0, 0, 1]],
+    "initial_point": [0, 0, 0]
+  },
+  "camera": {
+    "position": [0, 1, 0],
+    "draw_distance": 7,
+    "fov": 70,
+    "vfov": null
+  },
+  "entities":
+  [
+    {"type": "hyperplane", "position": [0, 0, 0], "normal": [0, 1, 0]},
+    {"type": "hyperelipsoid", "position": [5, 2, 2], "semiaxes":  [1, 1, 1]},
+    {"type": "hyperelipsoid", "position": [-5, 2, 2], "semiaxes":  [1, 1, 1]}
+  ]
+}

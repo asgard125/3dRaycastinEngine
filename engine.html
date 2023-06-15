@@ -1,0 +1,717 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module engine</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>engine</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Casgard%5Cpycharmprojects%5Cengine%5Cengine.py">c:\users\asgard\pycharmprojects\engine\engine.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="base_classes.html">base_classes</a><br>
+</td><td width="25%" valign=top><a href="random.html">random</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="engine.html#EntitiesList">EntitiesList</a>
+</font></dt><dt><font face="helvetica, arial"><a href="engine.html#Entity">Entity</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="engine.html#Object">Object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="engine.html#Camera">Camera</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="engine.html#Game">Game</a>
+</font></dt><dt><font face="helvetica, arial"><a href="engine.html#Identifier">Identifier</a>
+</font></dt><dt><font face="helvetica, arial"><a href="engine.html#Ray">Ray</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Camera">class <strong>Camera</strong></a>(<a href="engine.html#Object">Object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Camera">Camera</a>(cs:&nbsp;base_classes.CoordinateSystem,&nbsp;position:&nbsp;base_classes.Point,&nbsp;direction:&nbsp;base_classes.Vector,&nbsp;draw_distance:&nbsp;float,&nbsp;fov:&nbsp;float,&nbsp;vfov:&nbsp;float&nbsp;=&nbsp;None,&nbsp;look_at:&nbsp;base_classes.Point&nbsp;=&nbsp;None)<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;that&nbsp;implements&nbsp;a&nbsp;some&nbsp;special&nbsp;case&nbsp;of&nbsp;engine&nbsp;<a href="builtins.html#object">object</a>&nbsp;with&nbsp;additional&nbsp;initialization&nbsp;options.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="engine.html#Camera">Camera</a></dd>
+<dd><a href="engine.html#Object">Object</a></dd>
+<dd><a href="engine.html#Entity">Entity</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Camera-__init__"><strong>__init__</strong></a>(self, cs: base_classes.CoordinateSystem, position: base_classes.Point, direction: base_classes.Vector, draw_distance: float, fov: float, vfov: float = None, look_at: base_classes.Point = None)</dt><dd><tt>Possible&nbsp;initialization&nbsp;options.<br>
+&nbsp;<br>
+<a href="#Camera">Camera</a>(cs:&nbsp;CoordinateSystem,&nbsp;position:&nbsp;Point,&nbsp;direction:&nbsp;Vector,&nbsp;fov:&nbsp;float,&nbsp;draw_distance:&nbsp;float)<br>
+<a href="#Camera">Camera</a>(cs:&nbsp;CoordinateSystem,&nbsp;position:&nbsp;Point,&nbsp;direction:&nbsp;Vector,<br>
+fov:&nbsp;float,&nbsp;vfov:&nbsp;float,&nbsp;draw_distance:&nbsp;float)<br>
+&nbsp;<br>
+<a href="#Camera">Camera</a>(cs:&nbsp;CoordinateSystem,&nbsp;position:&nbsp;Point,&nbsp;direction:&nbsp;Vector,<br>
+fov:&nbsp;float,&nbsp;look_at:&nbsp;Point,&nbsp;draw_distance:&nbsp;float)<br>
+&nbsp;<br>
+<a href="#Camera">Camera</a>(cs:&nbsp;CoordinateSystem,&nbsp;position:&nbsp;Point,&nbsp;direction:&nbsp;Vector,<br>
+fov:&nbsp;float,&nbsp;vfov:&nbsp;float,&nbsp;look_at:&nbsp;Point,&nbsp;draw_distance:&nbsp;float)<br>
+&nbsp;<br>
+Creates&nbsp;a&nbsp;<a href="#Camera">Camera</a>&nbsp;with&nbsp;the&nbsp;specified&nbsp;coordinate&nbsp;system,&nbsp;and&nbsp;entities&nbsp;list&nbsp;in&nbsp;it.<br>
+if&nbsp;vfov&nbsp;is&nbsp;not&nbsp;specified&nbsp;it&nbsp;calculates&nbsp;automatically<br>
+as&nbsp;fov&nbsp;/&nbsp;DEFAULT_HORIZONTAL_RATIO&nbsp;*&nbsp;DEFAULT_VERTICAL_RATIO.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>DEFAULT_HORIZONTAL_RATIO</strong> = 16</dl>
+
+<dl><dt><strong>DEFAULT_VERTICAL_RATIO</strong> = 9</dl>
+
+<hr>
+Methods inherited from <a href="engine.html#Object">Object</a>:<br>
+<dl><dt><a name="Camera-move"><strong>move</strong></a>(self, direction: base_classes.Vector) -&gt; None</dt><dd><tt>Method&nbsp;for&nbsp;moving&nbsp;an&nbsp;<a href="builtins.html#object">object</a>&nbsp;in&nbsp;the&nbsp;direction<br>
+&nbsp;of&nbsp;a&nbsp;vector.<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;direction&nbsp;(Vector):&nbsp;a&nbsp;Vector&nbsp;of&nbsp;direction&nbsp;to&nbsp;move<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Camera-planar_rotate"><strong>planar_rotate</strong></a>(self, inds: (&lt;class 'int'&gt;, &lt;class 'int'&gt;), angle: float) -&gt; None</dt><dd><tt>Method&nbsp;to&nbsp;rotate&nbsp;an&nbsp;<a href="builtins.html#object">object</a>&nbsp;in&nbsp;a&nbsp;plane&nbsp;defined&nbsp;by&nbsp;two&nbsp;axes&nbsp;by&nbsp;a&nbsp;given&nbsp;angle.<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inds&nbsp;(tuple(int,&nbsp;int)):&nbsp;an&nbsp;axes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;angle&nbsp;(float):&nbsp;an&nbsp;angle<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Camera-rotate_3d"><strong>rotate_3d</strong></a>(self, angles: (&lt;class 'float'&gt;, &lt;class 'float'&gt;, &lt;class 'float'&gt;)) -&gt; None</dt><dd><tt>Method&nbsp;to&nbsp;rotate&nbsp;a&nbsp;three-dimensional&nbsp;<a href="builtins.html#object">object</a>&nbsp;at&nbsp;specified&nbsp;angles<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;angles&nbsp;(tuple(float,&nbsp;float,&nbsp;float):&nbsp;angles&nbsp;of&nbsp;rotating<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Camera-set_direction"><strong>set_direction</strong></a>(self, direction: base_classes.Vector) -&gt; None</dt><dd><tt>Method&nbsp;to&nbsp;set&nbsp;the&nbsp;new&nbsp;direction<br>
+&nbsp;of&nbsp;the&nbsp;"view"&nbsp;of&nbsp;an&nbsp;<a href="builtins.html#object">object</a>&nbsp;in&nbsp;space.<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;direction&nbsp;(Vectors):&nbsp;a&nbsp;Vector&nbsp;of&nbsp;new&nbsp;direction.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Camera-set_position"><strong>set_position</strong></a>(self, position: base_classes.Point) -&gt; None</dt><dd><tt>A&nbsp;method&nbsp;to&nbsp;establish&nbsp;the&nbsp;new&nbsp;position&nbsp;of&nbsp;an&nbsp;<a href="builtins.html#object">object</a>&nbsp;in&nbsp;space.<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;position&nbsp;(Point):&nbsp;a&nbsp;Point&nbsp;of&nbsp;new&nbsp;position<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="engine.html#Entity">Entity</a>:<br>
+<dl><dt><a name="Camera-__delete__"><strong>__delete__</strong></a>(self, prop: str)</dt><dd><tt>Method&nbsp;for&nbsp;removing&nbsp;existing&nbsp;property&nbsp;by&nbsp;accessing&nbsp;as&nbsp;attribute<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityNonExistingPropertyException<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityReservedPropertyException<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AttributeError<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Camera-__delitem__"><strong>__delitem__</strong></a>(self, prop: str)</dt><dd><tt>Method&nbsp;for&nbsp;removing&nbsp;existing&nbsp;property&nbsp;by&nbsp;accessing&nbsp;as&nbsp;index<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityNonExistingPropertyException<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityReservedPropertyException<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Camera-__get__"><strong>__get__</strong></a>(self, prop)</dt><dd><tt>Method&nbsp;for&nbsp;getting&nbsp;a&nbsp;value&nbsp;of&nbsp;property&nbsp;by&nbsp;accessing&nbsp;as&nbsp;attribute<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityNonExistingPropertyException<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AttributeError<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Camera-__getitem__"><strong>__getitem__</strong></a>(self, prop: str)</dt><dd><tt>Method&nbsp;for&nbsp;getting&nbsp;a&nbsp;value&nbsp;of&nbsp;property&nbsp;by&nbsp;accessing&nbsp;as&nbsp;index<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityNonExistingPropertyException<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Camera-__set__"><strong>__set__</strong></a>(self, prop: str, value)</dt><dd><tt>Method&nbsp;for&nbsp;setting&nbsp;new&nbsp;property&nbsp;of&nbsp;entity&nbsp;or&nbsp;changing&nbsp;existing&nbsp;property&nbsp;by&nbsp;accessing&nbsp;as&nbsp;attribute<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;(any):&nbsp;a&nbsp;value&nbsp;of&nbsp;a&nbsp;property<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityReservedPropertyException<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AttributeError<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Camera-__setitem__"><strong>__setitem__</strong></a>(self, prop: str, value)</dt><dd><tt>Method&nbsp;for&nbsp;setting&nbsp;new&nbsp;property&nbsp;of&nbsp;entity&nbsp;or&nbsp;changing&nbsp;existing&nbsp;property&nbsp;by&nbsp;accessing&nbsp;as&nbsp;index<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;(any):&nbsp;a&nbsp;value&nbsp;of&nbsp;a&nbsp;property<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityReservedPropertyException<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Camera-get_property"><strong>get_property</strong></a>(self, prop)</dt><dd><tt>Method&nbsp;for&nbsp;getting&nbsp;a&nbsp;value&nbsp;of&nbsp;a&nbsp;property<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityNonExistingPropertyException<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;property&nbsp;value&nbsp;if&nbsp;property&nbsp;exists</tt></dd></dl>
+
+<dl><dt><a name="Camera-remove_property"><strong>remove_property</strong></a>(self, prop: str) -&gt; None</dt><dd><tt>Method&nbsp;for&nbsp;removing&nbsp;existing&nbsp;property<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityNonExistingPropertyException<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityReservedPropertyException<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Camera-set_property"><strong>set_property</strong></a>(self, prop: str, value) -&gt; None</dt><dd><tt>Method&nbsp;for&nbsp;setting&nbsp;new&nbsp;property&nbsp;of&nbsp;entity&nbsp;or&nbsp;changing&nbsp;existing&nbsp;property<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;(any):&nbsp;a&nbsp;value&nbsp;of&nbsp;a&nbsp;property<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityReservedPropertyException<br>
+Returns:</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="engine.html#Entity">Entity</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="EntitiesList">class <strong>EntitiesList</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#EntitiesList">EntitiesList</a>(*entities:&nbsp;engine.<a href="#Entity">Entity</a>)<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;that&nbsp;implements&nbsp;an&nbsp;engine&nbsp;entity&nbsp;storage.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="EntitiesList-__getitem__"><strong>__getitem__</strong></a>(self, id: engine.Identifier)</dt><dd><tt>Method&nbsp;for&nbsp;getting&nbsp;entity&nbsp;by&nbsp;its&nbsp;identifier&nbsp;as&nbsp;index<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;(<a href="#Identifier">Identifier</a>):&nbsp;an&nbsp;<a href="#Identifier">Identifier</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;of&nbsp;entity<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Entity">Entity</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;with&nbsp;matching&nbsp;<a href="#Identifier">Identifier</a>&nbsp;or&nbsp;None</tt></dd></dl>
+
+<dl><dt><a name="EntitiesList-__init__"><strong>__init__</strong></a>(self, *entities: engine.Entity)</dt><dd><tt>Possible&nbsp;initialization&nbsp;options.<br>
+&nbsp;<br>
+<a href="#EntitiesList">EntitiesList</a>(<a href="#Entity">Entity</a>,&nbsp;...).<br>
+Creates&nbsp;an&nbsp;<a href="#EntitiesList">EntitiesList</a>&nbsp;with&nbsp;the&nbsp;specified&nbsp;entities&nbsp;in&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="EntitiesList-append"><strong>append</strong></a>(self, entity: engine.Entity) -&gt; None</dt><dd><tt>Method&nbsp;adding&nbsp;entity&nbsp;to&nbsp;the&nbsp;list<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;entity&nbsp;(<a href="#Entity">Entity</a>):&nbsp;an&nbsp;entity&nbsp;<a href="builtins.html#object">object</a>&nbsp;not&nbsp;in&nbsp;this&nbsp;list<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntitiesListEntityInListException<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="EntitiesList-exec"><strong>exec</strong></a>(self, func) -&gt; None</dt><dd><tt>Method&nbsp;for&nbsp;applying&nbsp;the&nbsp;function&nbsp;of&nbsp;one&nbsp;argument&nbsp;(entity)&nbsp;to&nbsp;all&nbsp;entities&nbsp;of&nbsp;this<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list.<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;func&nbsp;(function):&nbsp;a&nbsp;function&nbsp;of&nbsp;one&nbsp;argument&nbsp;(entity)<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="EntitiesList-get"><strong>get</strong></a>(self, id: engine.Identifier) -&gt; engine.Entity | None</dt><dd><tt>Method&nbsp;for&nbsp;getting&nbsp;entity&nbsp;by&nbsp;its&nbsp;identifier<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;(<a href="#Identifier">Identifier</a>):&nbsp;an&nbsp;<a href="#Identifier">Identifier</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;of&nbsp;entity<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;<a href="#Entity">Entity</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;with&nbsp;matching&nbsp;<a href="#Identifier">Identifier</a>&nbsp;or&nbsp;None</tt></dd></dl>
+
+<dl><dt><a name="EntitiesList-remove"><strong>remove</strong></a>(self, id: engine.Identifier) -&gt; None</dt><dd><tt>Method&nbsp;for&nbsp;removing&nbsp;entity&nbsp;from&nbsp;the&nbsp;list<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;(<a href="#Identifier">Identifier</a>):&nbsp;an&nbsp;<a href="#Identifier">Identifier</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;of&nbsp;entity<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntitiesListEntityNotInListException<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Entity">class <strong>Entity</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Entity">Entity</a>(cs:&nbsp;base_classes.CoordinateSystem)<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;that&nbsp;implements&nbsp;an&nbsp;engine&nbsp;entity&nbsp;with&nbsp;the&nbsp;specified&nbsp;properties.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Entity-__delete__"><strong>__delete__</strong></a>(self, prop: str)</dt><dd><tt>Method&nbsp;for&nbsp;removing&nbsp;existing&nbsp;property&nbsp;by&nbsp;accessing&nbsp;as&nbsp;attribute<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityNonExistingPropertyException<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityReservedPropertyException<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AttributeError<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Entity-__delitem__"><strong>__delitem__</strong></a>(self, prop: str)</dt><dd><tt>Method&nbsp;for&nbsp;removing&nbsp;existing&nbsp;property&nbsp;by&nbsp;accessing&nbsp;as&nbsp;index<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityNonExistingPropertyException<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityReservedPropertyException<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Entity-__get__"><strong>__get__</strong></a>(self, prop)</dt><dd><tt>Method&nbsp;for&nbsp;getting&nbsp;a&nbsp;value&nbsp;of&nbsp;property&nbsp;by&nbsp;accessing&nbsp;as&nbsp;attribute<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityNonExistingPropertyException<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AttributeError<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Entity-__getitem__"><strong>__getitem__</strong></a>(self, prop: str)</dt><dd><tt>Method&nbsp;for&nbsp;getting&nbsp;a&nbsp;value&nbsp;of&nbsp;property&nbsp;by&nbsp;accessing&nbsp;as&nbsp;index<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityNonExistingPropertyException<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Entity-__init__"><strong>__init__</strong></a>(self, cs: base_classes.CoordinateSystem)</dt><dd><tt>Possible&nbsp;initialization&nbsp;options.<br>
+&nbsp;<br>
+<a href="#Entity">Entity</a>(cs:&nbsp;CoordinateSystem).<br>
+Creates&nbsp;an&nbsp;<a href="#Entity">Entity</a>&nbsp;with&nbsp;the&nbsp;specified&nbsp;coordinate&nbsp;system,&nbsp;empty&nbsp;properties&nbsp;(as&nbsp;dictionary)<br>
+and&nbsp;unique&nbsp;identifier&nbsp;as&nbsp;an&nbsp;<a href="builtins.html#object">object</a>&nbsp;of&nbsp;class&nbsp;<a href="#Identifier">Identifier</a>.</tt></dd></dl>
+
+<dl><dt><a name="Entity-__set__"><strong>__set__</strong></a>(self, prop: str, value)</dt><dd><tt>Method&nbsp;for&nbsp;setting&nbsp;new&nbsp;property&nbsp;of&nbsp;entity&nbsp;or&nbsp;changing&nbsp;existing&nbsp;property&nbsp;by&nbsp;accessing&nbsp;as&nbsp;attribute<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;(any):&nbsp;a&nbsp;value&nbsp;of&nbsp;a&nbsp;property<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityReservedPropertyException<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AttributeError<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Entity-__setitem__"><strong>__setitem__</strong></a>(self, prop: str, value)</dt><dd><tt>Method&nbsp;for&nbsp;setting&nbsp;new&nbsp;property&nbsp;of&nbsp;entity&nbsp;or&nbsp;changing&nbsp;existing&nbsp;property&nbsp;by&nbsp;accessing&nbsp;as&nbsp;index<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;(any):&nbsp;a&nbsp;value&nbsp;of&nbsp;a&nbsp;property<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityReservedPropertyException<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Entity-get_property"><strong>get_property</strong></a>(self, prop)</dt><dd><tt>Method&nbsp;for&nbsp;getting&nbsp;a&nbsp;value&nbsp;of&nbsp;a&nbsp;property<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityNonExistingPropertyException<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;property&nbsp;value&nbsp;if&nbsp;property&nbsp;exists</tt></dd></dl>
+
+<dl><dt><a name="Entity-remove_property"><strong>remove_property</strong></a>(self, prop: str) -&gt; None</dt><dd><tt>Method&nbsp;for&nbsp;removing&nbsp;existing&nbsp;property<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityNonExistingPropertyException<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityReservedPropertyException<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Entity-set_property"><strong>set_property</strong></a>(self, prop: str, value) -&gt; None</dt><dd><tt>Method&nbsp;for&nbsp;setting&nbsp;new&nbsp;property&nbsp;of&nbsp;entity&nbsp;or&nbsp;changing&nbsp;existing&nbsp;property<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;(any):&nbsp;a&nbsp;value&nbsp;of&nbsp;a&nbsp;property<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityReservedPropertyException<br>
+Returns:</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Game">class <strong>Game</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Game">Game</a>(cs:&nbsp;base_classes.CoordinateSystem,&nbsp;entities:&nbsp;engine.<a href="#EntitiesList">EntitiesList</a>)<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;that&nbsp;implements&nbsp;a&nbsp;main&nbsp;engine&nbsp;class&nbsp;which&nbsp;has&nbsp;methods&nbsp;to&nbsp;make&nbsp;operations&nbsp;in&nbsp;real&nbsp;time.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Game-__init__"><strong>__init__</strong></a>(self, cs: base_classes.CoordinateSystem, entities: engine.EntitiesList)</dt><dd><tt>Possible&nbsp;initialization&nbsp;options.<br>
+&nbsp;<br>
+<a href="#Game">Game</a>(cs:&nbsp;CoordinateSystem,&nbsp;entities:&nbsp;<a href="#EntitiesList">EntitiesList</a>).<br>
+Creates&nbsp;a&nbsp;<a href="#Game">Game</a>&nbsp;with&nbsp;the&nbsp;specified&nbsp;coordinate&nbsp;system,&nbsp;and&nbsp;entities&nbsp;list&nbsp;in&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="Game-exit"><strong>exit</strong></a>(self) -&gt; None</dt><dd><tt>Method&nbsp;that&nbsp;executes&nbsp;the&nbsp;exit&nbsp;script&nbsp;from&nbsp;the&nbsp;game&nbsp;process.<br>
+Args:<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Game-get_camera_class"><strong>get_camera_class</strong></a>(self, position: base_classes.Point, direction: base_classes.Vector, draw_distance: float, fov: float, vfov: float = None, look_at: base_classes.Point = None)</dt><dd><tt>Method&nbsp;for&nbsp;creating&nbsp;an&nbsp;<a href="builtins.html#object">object</a>&nbsp;of&nbsp;<a href="#Camera">Camera</a>&nbsp;class&nbsp;with&nbsp;a&nbsp;coordinate&nbsp;system&nbsp;from&nbsp;the&nbsp;<a href="#Game">Game</a>&nbsp;class<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;position&nbsp;(Point):&nbsp;an&nbsp;initial&nbsp;point&nbsp;of&nbsp;the&nbsp;camera&nbsp;as&nbsp;property<br>
+&nbsp;&nbsp;&nbsp;&nbsp;direction&nbsp;(Vector):&nbsp;direction&nbsp;of&nbsp;the&nbsp;camera&nbsp;as&nbsp;property<br>
+&nbsp;&nbsp;&nbsp;&nbsp;draw_distance&nbsp;(float):&nbsp;draw&nbsp;distance&nbsp;of&nbsp;the&nbsp;camera&nbsp;as&nbsp;property<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fov&nbsp;(float):&nbsp;horizontal&nbsp;field&nbsp;of&nbsp;view&nbsp;of&nbsp;the&nbsp;camera&nbsp;as&nbsp;property<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vfov&nbsp;(float):&nbsp;vertical&nbsp;field&nbsp;of&nbsp;view&nbsp;of&nbsp;the&nbsp;camera&nbsp;as&nbsp;property<br>
+&nbsp;&nbsp;&nbsp;&nbsp;look_at&nbsp;(Point):&nbsp;a&nbsp;point&nbsp;<a href="builtins.html#object">object</a>&nbsp;at&nbsp;which&nbsp;camera&nbsp;looks&nbsp;at&nbsp;as&nbsp;property<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;GameCamera&nbsp;class&nbsp;<a href="builtins.html#object">object</a></tt></dd></dl>
+
+<dl><dt><a name="Game-get_entity_class"><strong>get_entity_class</strong></a>(self)</dt><dd><tt>Method&nbsp;for&nbsp;creating&nbsp;an&nbsp;<a href="builtins.html#object">object</a>&nbsp;of&nbsp;<a href="#Entity">Entity</a>&nbsp;class&nbsp;with&nbsp;a&nbsp;coordinate&nbsp;system&nbsp;from&nbsp;the&nbsp;<a href="#Game">Game</a>&nbsp;class<br>
+Args:<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;GameEntity&nbsp;class&nbsp;<a href="builtins.html#object">object</a></tt></dd></dl>
+
+<dl><dt><a name="Game-get_object_class"><strong>get_object_class</strong></a>(self, position: base_classes.Point, direction: base_classes.Vector)</dt><dd><tt>Method&nbsp;for&nbsp;creating&nbsp;an&nbsp;<a href="builtins.html#object">object</a>&nbsp;of&nbsp;<a href="#Object">Object</a>&nbsp;class&nbsp;with&nbsp;a&nbsp;coordinate&nbsp;system&nbsp;from&nbsp;the&nbsp;<a href="#Game">Game</a>&nbsp;class<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;position&nbsp;(Point):&nbsp;an&nbsp;initial&nbsp;point&nbsp;of&nbsp;the&nbsp;<a href="builtins.html#object">object</a>&nbsp;as&nbsp;property<br>
+&nbsp;&nbsp;&nbsp;&nbsp;direction&nbsp;(Vector):&nbsp;direction&nbsp;of&nbsp;the&nbsp;<a href="builtins.html#object">object</a>&nbsp;as&nbsp;property<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;GameObject&nbsp;class&nbsp;<a href="builtins.html#object">object</a></tt></dd></dl>
+
+<dl><dt><a name="Game-get_ray_class"><strong>get_ray_class</strong></a>(self, initial_pt: base_classes.Point, direction: base_classes.Vector)</dt><dd><tt>Method&nbsp;for&nbsp;creating&nbsp;an&nbsp;<a href="builtins.html#object">object</a>&nbsp;of&nbsp;<a href="#Ray">Ray</a>&nbsp;class&nbsp;with&nbsp;a&nbsp;coordinate&nbsp;system&nbsp;from&nbsp;the&nbsp;<a href="#Game">Game</a>&nbsp;class<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;initial_pt&nbsp;(Point):&nbsp;an&nbsp;initial&nbsp;point&nbsp;of&nbsp;the&nbsp;ray<br>
+&nbsp;&nbsp;&nbsp;&nbsp;direction&nbsp;(Vector):&nbsp;direction&nbsp;of&nbsp;the&nbsp;ray<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;GameRay&nbsp;class&nbsp;<a href="builtins.html#object">object</a></tt></dd></dl>
+
+<dl><dt><a name="Game-run"><strong>run</strong></a>(self) -&gt; None</dt><dd><tt>Method&nbsp;executing&nbsp;the&nbsp;game&nbsp;launch&nbsp;script.<br>
+Args:<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Game-update"><strong>update</strong></a>(self) -&gt; None</dt><dd><tt>Method&nbsp;that&nbsp;executes&nbsp;the&nbsp;script&nbsp;for&nbsp;updating&nbsp;the&nbsp;game&nbsp;process&nbsp;(updating&nbsp;information).<br>
+Args:<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Identifier">class <strong>Identifier</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;class&nbsp;that&nbsp;implements&nbsp;an&nbsp;unique&nbsp;identifier.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Identifier-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Possible&nbsp;initialization&nbsp;options.<br>
+&nbsp;<br>
+<a href="#Identifier">Identifier</a>().<br>
+Creates&nbsp;a&nbsp;unique&nbsp;identifier&nbsp;with&nbsp;generated&nbsp;value&nbsp;and&nbsp;adds&nbsp;it&nbsp;in&nbsp;all&nbsp;identifiers&nbsp;set.</tt></dd></dl>
+
+<dl><dt><a name="Identifier-get_value"><strong>get_value</strong></a>(self) -&gt; int | float | str</dt><dd><tt>Method&nbsp;for&nbsp;returning&nbsp;value&nbsp;of&nbsp;an&nbsp;identifier<br>
+Args:<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;value&nbsp;of&nbsp;identifier</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>identifiers</strong> = set()</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Object">class <strong>Object</strong></a>(<a href="engine.html#Entity">Entity</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Object">Object</a>(cs:&nbsp;base_classes.CoordinateSystem,&nbsp;position:&nbsp;base_classes.Point,&nbsp;direction:&nbsp;base_classes.Vector)<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;that&nbsp;implements&nbsp;a&nbsp;some&nbsp;special&nbsp;case&nbsp;of&nbsp;engine&nbsp;entity&nbsp;with&nbsp;the&nbsp;specified&nbsp;properties&nbsp;and&nbsp;mathematical<br>
+functions&nbsp;on&nbsp;it.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="engine.html#Object">Object</a></dd>
+<dd><a href="engine.html#Entity">Entity</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Object-__init__"><strong>__init__</strong></a>(self, cs: base_classes.CoordinateSystem, position: base_classes.Point, direction: base_classes.Vector)</dt><dd><tt>Possible&nbsp;initialization&nbsp;options.<br>
+&nbsp;<br>
+<a href="#Object">Object</a>(cs:&nbsp;bc.CoordinateSystem,&nbsp;position:&nbsp;bc.Point,&nbsp;direction:&nbsp;bc.Vector).<br>
+Creates&nbsp;an&nbsp;<a href="#Entity">Entity</a>&nbsp;with&nbsp;the&nbsp;specified&nbsp;coordinate&nbsp;system,&nbsp;unique&nbsp;identifier&nbsp;and&nbsp;position,&nbsp;direction&nbsp;as<br>
+properties.</tt></dd></dl>
+
+<dl><dt><a name="Object-move"><strong>move</strong></a>(self, direction: base_classes.Vector) -&gt; None</dt><dd><tt>Method&nbsp;for&nbsp;moving&nbsp;an&nbsp;<a href="builtins.html#object">object</a>&nbsp;in&nbsp;the&nbsp;direction<br>
+&nbsp;of&nbsp;a&nbsp;vector.<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;direction&nbsp;(Vector):&nbsp;a&nbsp;Vector&nbsp;of&nbsp;direction&nbsp;to&nbsp;move<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Object-planar_rotate"><strong>planar_rotate</strong></a>(self, inds: (&lt;class 'int'&gt;, &lt;class 'int'&gt;), angle: float) -&gt; None</dt><dd><tt>Method&nbsp;to&nbsp;rotate&nbsp;an&nbsp;<a href="builtins.html#object">object</a>&nbsp;in&nbsp;a&nbsp;plane&nbsp;defined&nbsp;by&nbsp;two&nbsp;axes&nbsp;by&nbsp;a&nbsp;given&nbsp;angle.<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inds&nbsp;(tuple(int,&nbsp;int)):&nbsp;an&nbsp;axes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;angle&nbsp;(float):&nbsp;an&nbsp;angle<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Object-rotate_3d"><strong>rotate_3d</strong></a>(self, angles: (&lt;class 'float'&gt;, &lt;class 'float'&gt;, &lt;class 'float'&gt;)) -&gt; None</dt><dd><tt>Method&nbsp;to&nbsp;rotate&nbsp;a&nbsp;three-dimensional&nbsp;<a href="builtins.html#object">object</a>&nbsp;at&nbsp;specified&nbsp;angles<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;angles&nbsp;(tuple(float,&nbsp;float,&nbsp;float):&nbsp;angles&nbsp;of&nbsp;rotating<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Object-set_direction"><strong>set_direction</strong></a>(self, direction: base_classes.Vector) -&gt; None</dt><dd><tt>Method&nbsp;to&nbsp;set&nbsp;the&nbsp;new&nbsp;direction<br>
+&nbsp;of&nbsp;the&nbsp;"view"&nbsp;of&nbsp;an&nbsp;<a href="builtins.html#object">object</a>&nbsp;in&nbsp;space.<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;direction&nbsp;(Vectors):&nbsp;a&nbsp;Vector&nbsp;of&nbsp;new&nbsp;direction.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Object-set_position"><strong>set_position</strong></a>(self, position: base_classes.Point) -&gt; None</dt><dd><tt>A&nbsp;method&nbsp;to&nbsp;establish&nbsp;the&nbsp;new&nbsp;position&nbsp;of&nbsp;an&nbsp;<a href="builtins.html#object">object</a>&nbsp;in&nbsp;space.<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;position&nbsp;(Point):&nbsp;a&nbsp;Point&nbsp;of&nbsp;new&nbsp;position<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="engine.html#Entity">Entity</a>:<br>
+<dl><dt><a name="Object-__delete__"><strong>__delete__</strong></a>(self, prop: str)</dt><dd><tt>Method&nbsp;for&nbsp;removing&nbsp;existing&nbsp;property&nbsp;by&nbsp;accessing&nbsp;as&nbsp;attribute<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityNonExistingPropertyException<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityReservedPropertyException<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AttributeError<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Object-__delitem__"><strong>__delitem__</strong></a>(self, prop: str)</dt><dd><tt>Method&nbsp;for&nbsp;removing&nbsp;existing&nbsp;property&nbsp;by&nbsp;accessing&nbsp;as&nbsp;index<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityNonExistingPropertyException<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityReservedPropertyException<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Object-__get__"><strong>__get__</strong></a>(self, prop)</dt><dd><tt>Method&nbsp;for&nbsp;getting&nbsp;a&nbsp;value&nbsp;of&nbsp;property&nbsp;by&nbsp;accessing&nbsp;as&nbsp;attribute<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityNonExistingPropertyException<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AttributeError<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Object-__getitem__"><strong>__getitem__</strong></a>(self, prop: str)</dt><dd><tt>Method&nbsp;for&nbsp;getting&nbsp;a&nbsp;value&nbsp;of&nbsp;property&nbsp;by&nbsp;accessing&nbsp;as&nbsp;index<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityNonExistingPropertyException<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Object-__set__"><strong>__set__</strong></a>(self, prop: str, value)</dt><dd><tt>Method&nbsp;for&nbsp;setting&nbsp;new&nbsp;property&nbsp;of&nbsp;entity&nbsp;or&nbsp;changing&nbsp;existing&nbsp;property&nbsp;by&nbsp;accessing&nbsp;as&nbsp;attribute<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;(any):&nbsp;a&nbsp;value&nbsp;of&nbsp;a&nbsp;property<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityReservedPropertyException<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AttributeError<br>
+&nbsp;<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Object-__setitem__"><strong>__setitem__</strong></a>(self, prop: str, value)</dt><dd><tt>Method&nbsp;for&nbsp;setting&nbsp;new&nbsp;property&nbsp;of&nbsp;entity&nbsp;or&nbsp;changing&nbsp;existing&nbsp;property&nbsp;by&nbsp;accessing&nbsp;as&nbsp;index<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;(any):&nbsp;a&nbsp;value&nbsp;of&nbsp;a&nbsp;property<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityReservedPropertyException<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Object-get_property"><strong>get_property</strong></a>(self, prop)</dt><dd><tt>Method&nbsp;for&nbsp;getting&nbsp;a&nbsp;value&nbsp;of&nbsp;a&nbsp;property<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityNonExistingPropertyException<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;property&nbsp;value&nbsp;if&nbsp;property&nbsp;exists</tt></dd></dl>
+
+<dl><dt><a name="Object-remove_property"><strong>remove_property</strong></a>(self, prop: str) -&gt; None</dt><dd><tt>Method&nbsp;for&nbsp;removing&nbsp;existing&nbsp;property<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityNonExistingPropertyException<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityReservedPropertyException<br>
+Returns:</tt></dd></dl>
+
+<dl><dt><a name="Object-set_property"><strong>set_property</strong></a>(self, prop: str, value) -&gt; None</dt><dd><tt>Method&nbsp;for&nbsp;setting&nbsp;new&nbsp;property&nbsp;of&nbsp;entity&nbsp;or&nbsp;changing&nbsp;existing&nbsp;property<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prop&nbsp;(str):&nbsp;a&nbsp;name&nbsp;of&nbsp;a&nbsp;property<br>
+&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;(any):&nbsp;a&nbsp;value&nbsp;of&nbsp;a&nbsp;property<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EntityReservedPropertyException<br>
+Returns:</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="engine.html#Entity">Entity</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Ray">class <strong>Ray</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Ray">Ray</a>(cs:&nbsp;base_classes.CoordinateSystem,&nbsp;initial_pt:&nbsp;base_classes.Point,&nbsp;direction:&nbsp;base_classes.Vector)<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;that&nbsp;implements&nbsp;a&nbsp;mathematical&nbsp;<a href="builtins.html#object">object</a>&nbsp;ray&nbsp;and&nbsp;operations&nbsp;on&nbsp;them.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Ray-__init__"><strong>__init__</strong></a>(self, cs: base_classes.CoordinateSystem, initial_pt: base_classes.Point, direction: base_classes.Vector)</dt><dd><tt>Possible&nbsp;initialization&nbsp;options.<br>
+&nbsp;<br>
+<a href="#Ray">Ray</a>(cs:&nbsp;CoordinateSystem,&nbsp;initial_pt:&nbsp;Point,&nbsp;direction:&nbsp;Vector).<br>
+Creates&nbsp;a&nbsp;ray&nbsp;with&nbsp;the&nbsp;specified&nbsp;coordinate&nbsp;system,&nbsp;initial&nbsp;point&nbsp;and&nbsp;direction.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>
